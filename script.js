@@ -91,7 +91,7 @@ new Chart(stage2ChartCtx, {
 });
 
 // Gemini API Integration
-const apiKey = ""; 
+const apiKey = "AIzaSyDdS73YxNhCpJYcTqtJqHLUKHZOwU7orIU"; 
 
 function markdownToHtml(markdownText) {
     let htmlText = markdownText;
