@@ -150,7 +150,7 @@ const euOutput = document.getElementById('euOutput');
 const euLoader = document.getElementById('euLoader');
 
 explainEUBtn.addEventListener('click', () => {
-    const prompt = `Explain in 2-3 sentences what 'Enduring Understandings' mean in the context of teaching Sophocles' 'Antigone', providing an example specific to the play.`;
+    const prompt = `Explain in 2-3 sentences what 'Enduring Understandings' mean in the context of teaching Sophocles' <em>Antigone</em>, providing an example specific to the play.`;
     callGemini(prompt, euOutput, euLoader);
 });
 
@@ -160,7 +160,7 @@ const formativeOutput = document.getElementById('formativeOutput');
 const formativeLoader = document.getElementById('formativeLoader');
 
 suggestFormativeBtn.addEventListener('click', () => {
-    const prompt = `Suggest 3-4 creative and brief formative assessment ideas for a high school unit on Sophocles' 'Antigone', focusing on checking comprehension and analysis of themes like law vs. morality.`;
+    const prompt = `Suggest 3-4 creative and brief formative assessment ideas for a high school unit on Sophocles' <em>Antigone</em>, focusing on checking comprehension and analysis of themes like law vs. morality.`;
     callGemini(prompt, formativeOutput, formativeLoader);
 });
 
@@ -170,7 +170,7 @@ const scaffoldingOutput = document.getElementById('scaffoldingOutput');
 const scaffoldingLoader = document.getElementById('scaffoldingLoader');
 
 moreScaffoldingBtn.addEventListener('click', () => {
-    const prompt = `Provide 3-4 concrete examples of scaffolding strategies for high school students struggling with Sophocles' 'Antigone', specifically related to complex language or thematic understanding.`;
+    const prompt = `Provide 3-4 concrete examples of scaffolding strategies for high school students struggling with Sophocles' <em>Antigone</em>, specifically related to complex language or thematic understanding.`;
     callGemini(prompt, scaffoldingOutput, scaffoldingLoader);
 });
 
@@ -180,6 +180,6 @@ const enrichmentOutput = document.getElementById('enrichmentOutput');
 const enrichmentLoader = document.getElementById('enrichmentLoader');
 
 moreEnrichmentBtn.addEventListener('click', () => {
-    const prompt = `Provide 3-4 concrete examples of enrichment opportunities for advanced high school students studying Sophocles' 'Antigone', encouraging deeper analysis or creative extension.`;
+    const prompt = `Provide 3-4 concrete examples of enrichment opportunities for advanced high school students studying Sophocles' <em>Antigone</em>, encouraging deeper analysis or creative extension.`;
     callGemini(prompt, enrichmentOutput, enrichmentLoader);
 });
