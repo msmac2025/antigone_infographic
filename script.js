@@ -91,7 +91,20 @@ new Chart(stage2ChartCtx, {
 });
 
 // Gemini API Integration
-const apiKey = "AIzaSyDdS73YxNhCpJYcTqtJqHLUKHZOwU7orIU"; 
+const apiKey = ""; 
+
+function markdownToHtml(markdownText) {
+    let htmlText = markdownText;
+    // Bold: **text** or __text__
+    htmlText = htmlText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    htmlText = htmlText.replace(/__(.*?)__/g, '<strong>$1</strong>');
+    // Italic: *text* or _text_
+    htmlText = htmlText.replace(/\*(.*?)\*/g, '<em>$1</em>');
+    htmlText = htmlText.replace(/_(.*?)_/g, '<em>$1</em>');
+    // Line breaks
+    htmlText = htmlText.replace(/\n/g, '<br>');
+    return htmlText;
+}
 
 async function callGemini(prompt, outputElement, loaderElement) {
     outputElement.innerHTML = '';
@@ -115,7 +128,8 @@ async function callGemini(prompt, outputElement, loaderElement) {
             result.candidates[0].content && result.candidates[0].content.parts &&
             result.candidates[0].content.parts.length > 0) {
             const text = result.candidates[0].content.parts[0].text;
-            outputElement.innerHTML = `<pre class="whitespace-pre-wrap font-sans text-sm">${text}</pre>`;
+            // Convert Markdown to HTML before displaying
+            outputElement.innerHTML = markdownToHtml(text);
             outputElement.classList.remove('hidden');
         } else {
             outputElement.innerHTML = `<p class="text-red-600">Error: No content generated. Please try again.</p>`;
