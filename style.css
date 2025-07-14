@@ -1,0 +1,56 @@
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #FFFFFF;
+    color: #1D1D1D;
+}
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    max-height: 400px;
+}
+@media (min-width: 768px) {
+    .chart-container {
+        height: 400px;
+    }
+}
+.flowchart-step {
+    position: relative;
+    padding-left: 2.5rem; 
+    padding-bottom: 2rem;
+    border-left: 4px solid #3E92CC;
+}
+.flowchart-step:last-child {
+    border-left: 4px solid transparent;
+    padding-bottom: 0;
+}
+.flowchart-dot {
+    position: absolute;
+    left: -12px;
+    top: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #0A2463;
+    border: 4px solid #FFFFFF;
+}
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3E92CC;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    display: none;
+    margin-left: 10px;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
