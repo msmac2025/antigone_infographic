@@ -106,9 +106,10 @@ function markdownToHtml(markdownText) {
     return htmlText;
 }
 
-async function callGemini(prompt, outputElement, loaderElement) {
+async function callGemini(prompt, outputElement, loaderElement, copyButton) {
     outputElement.innerHTML = '';
     outputElement.classList.add('hidden');
+    if (copyButton) copyButton.classList.add('hidden');
     loaderElement.style.display = 'block';
 
     let chatHistory = [];
@@ -128,9 +129,9 @@ async function callGemini(prompt, outputElement, loaderElement) {
             result.candidates[0].content && result.candidates[0].content.parts &&
             result.candidates[0].content.parts.length > 0) {
             const text = result.candidates[0].content.parts[0].text;
-            // Convert Markdown to HTML before displaying
             outputElement.innerHTML = markdownToHtml(text);
             outputElement.classList.remove('hidden');
+            if (copyButton) copyButton.classList.remove('hidden');
         } else {
             outputElement.innerHTML = `<p class="text-red-600">Error: No content generated. Please try again.</p>`;
             outputElement.classList.remove('hidden');
@@ -144,42 +145,80 @@ async function callGemini(prompt, outputElement, loaderElement) {
     }
 }
 
+// Copy to clipboard function
+function copyToClipboard(elementId, copyButton) {
+    const outputElement = document.getElementById(elementId);
+    const textToCopy = outputElement.innerText;
+    
+    const textarea = document.createElement('textarea');
+    textarea.value = textToCopy;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+
+    const originalText = copyButton.innerText;
+    copyButton.innerText = 'Copied!';
+    setTimeout(() => {
+        copyButton.innerText = originalText;
+    }, 1500);
+}
+
 // Stage 1: Explain Enduring Understandings
 const explainEUBtn = document.getElementById('explainEUBtn');
 const euOutput = document.getElementById('euOutput');
 const euLoader = document.getElementById('euLoader');
+const copyEUBtn = document.getElementById('copyEUBtn');
 
 explainEUBtn.addEventListener('click', () => {
-    const prompt = `Explain in 2-3 sentences what 'Enduring Understandings' mean in the context of teaching Sophocles' <em>Antigone</em>, providing an example specific to the play.`;
-    callGemini(prompt, euOutput, euLoader);
+    const prompt = `Explain in 2-3 sentences what 'Enduring Understandings' mean in the context of teaching Sophocles' 'Antigone', providing an example specific to the play.`;
+    callGemini(prompt, euOutput, euLoader, copyEUBtn);
 });
+copyEUBtn.addEventListener('click', () => copyToClipboard('euOutput', copyEUBtn));
 
 // Stage 2: Suggest Formative Assessment Ideas
 const suggestFormativeBtn = document.getElementById('suggestFormativeBtn');
 const formativeOutput = document.getElementById('formativeOutput');
 const formativeLoader = document.getElementById('formativeLoader');
+const copyFormativeBtn = document.getElementById('copyFormativeBtn');
 
 suggestFormativeBtn.addEventListener('click', () => {
-    const prompt = `Suggest 3-4 creative and brief formative assessment ideas for a high school unit on Sophocles' <em>Antigone</em>, focusing on checking comprehension and analysis of themes like law vs. morality.`;
-    callGemini(prompt, formativeOutput, formativeLoader);
+    const prompt = `Suggest 3-4 creative and brief formative assessment ideas for a high school unit on Sophocles' 'Antigone', focusing on checking comprehension and analysis of themes like law vs. morality.`;
+    callGemini(prompt, formativeOutput, formativeLoader, copyFormativeBtn);
 });
+copyFormativeBtn.addEventListener('click', () => copyToClipboard('formativeOutput', copyFormativeBtn));
 
 // Stage 3: More Scaffolding Examples
 const moreScaffoldingBtn = document.getElementById('moreScaffoldingBtn');
 const scaffoldingOutput = document.getElementById('scaffoldingOutput');
 const scaffoldingLoader = document.getElementById('scaffoldingLoader');
+const copyScaffoldingBtn = document.getElementById('copyScaffoldingBtn');
 
 moreScaffoldingBtn.addEventListener('click', () => {
-    const prompt = `Provide 3-4 concrete examples of scaffolding strategies for high school students struggling with Sophocles' <em>Antigone</em>, specifically related to complex language or thematic understanding.`;
-    callGemini(prompt, scaffoldingOutput, scaffoldingLoader);
+    const prompt = `Provide 3-4 concrete examples of scaffolding strategies for high school students struggling with Sophocles' 'Antigone', specifically related to complex language or thematic understanding.`;
+    callGemini(prompt, scaffoldingOutput, scaffoldingLoader, copyScaffoldingBtn);
 });
+copyScaffoldingBtn.addEventListener('click', () => copyToClipboard('scaffoldingOutput', copyScaffoldingBtn));
 
 // Stage 3: More Enrichment Examples
 const moreEnrichmentBtn = document.getElementById('moreEnrichmentBtn');
 const enrichmentOutput = document.getElementById('enrichmentOutput');
 const enrichmentLoader = document.getElementById('enrichmentLoader');
+const copyEnrichmentBtn = document.getElementById('copyEnrichmentBtn');
 
 moreEnrichmentBtn.addEventListener('click', () => {
-    const prompt = `Provide 3-4 concrete examples of enrichment opportunities for advanced high school students studying Sophocles' <em>Antigone</em>, encouraging deeper analysis or creative extension.`;
-    callGemini(prompt, enrichmentOutput, enrichmentLoader);
+    const prompt = `Provide 3-4 concrete examples of enrichment opportunities for advanced high school students studying Sophocles' 'Antigone', encouraging deeper analysis or creative extension.`;
+    callGemini(prompt, enrichmentOutput, enrichmentLoader, copyEnrichmentBtn);
+});
+copyEnrichmentBtn.addEventListener('click', () => copyToClipboard('enrichmentOutput', copyEnrichmentBtn));
+
+// Print Infographic
+const printInfographicBtn = document.createElement('button');
+printInfographicBtn.id = 'printInfographicBtn';
+printInfographicBtn.className = 'fixed bottom-4 right-4 bg-[#0A2463] text-white px-6 py-3 rounded-full shadow-lg hover:bg-[#3E92CC] transition-colors text-lg font-bold z-50';
+printInfographicBtn.innerText = '🖨️ Print Infographic';
+document.body.appendChild(printInfographicBtn);
+
+printInfographicBtn.addEventListener('click', () => {
+    window.print();
 });
