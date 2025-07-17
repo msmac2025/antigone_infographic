@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infographic: A Backward Design Approach to <em>Antigone</em></title>
+    <title>Infographic: A Backward Design Approach to 'Antigone'</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +23,7 @@
         <section id="stage1" class="mb-20">
             <div class="text-center mb-10">
                 <h2 class="text-4xl font-bold text-[#0A2463]">Stage 1: Identify Desired Results</h2>
-                <p class="mt-2 max-w-2xl mx-auto text-gray-600">This initial stage is the foundation, focusing on the end goal. Before planning any activities, we must define what students should know, understand, and be able to do after studying <em>Antigone</em>.</p>
+                <p class="mt-2 max-w-2xl mx-auto text-gray-600">This initial stage is the foundation, focusing on the end goal. Before planning any activities, we must define what students should know, understand, and be able to do after studying "Antigone."</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -34,15 +34,18 @@
                     <div class="bg-gray-100 p-4 rounded-lg shadow">
                         <h3 class="font-bold text-lg text-[#0A2463]">Enduring Understandings</h3>
                         <p class="text-sm mt-1">Big ideas about moral conflict, civic duty, and tragedy that stick with students.</p>
-                        <button id="explainEUBtn" class="mt-3 bg-[#3E92CC] text-white text-xs px-3 py-1 rounded-md hover:bg-[#0A2463] transition-colors flex items-center">
-                            ✨ Explain for Antigone
-                            <div id="euLoader" class="loader"></div>
-                        </button>
+                        <div class="flex items-center mt-3">
+                            <button id="explainEUBtn" class="bg-[#3E92CC] text-white text-xs px-3 py-1 rounded-md hover:bg-[#0A2463] transition-colors flex items-center">
+                                ✨ Explain for Antigone
+                                <div id="euLoader" class="loader"></div>
+                            </button>
+                            <button id="copyEUBtn" class="ml-2 bg-gray-300 text-gray-800 text-xs px-3 py-1 rounded-md hover:bg-gray-400 transition-colors hidden">Copy</button>
+                        </div>
                         <div id="euOutput" class="mt-2 text-sm text-gray-800 bg-blue-50 p-2 rounded hidden"></div>
                     </div>
                     <div class="bg-gray-100 p-4 rounded-lg shadow">
                         <h3 class="font-bold text-lg text-[#0A2463]">Essential Questions</h3>
-                        <p class="text-sm mt-1">Thought-provoking inquiries that drive discussion, like "When is it right to defy authority?"</p>
+                        <p class="text-sm mt-1">Thought-provoking inquiries that drive discussion, like "When is it right to defy authority?".</p>
                     </div>
                     <div class="bg-gray-100 p-4 rounded-lg shadow">
                         <h3 class="font-bold text-lg text-[#0A2463]">Knowledge</h3>
@@ -61,7 +64,7 @@
         <section id="stage2" class="mb-20">
             <div class="text-center mb-10">
                 <h2 class="text-4xl font-bold text-[#0A2463]">Stage 2: Determine Acceptable Evidence</h2>
-                <p class="mt-2 max-w-2xl mx-auto text-gray-600">How will we know if students have achieved the desired results? This stage focuses on creating quality assessments <em>before</em> planning lessons, ensuring our teaching is targeted.</p>
+                <p class="mt-2 max-w-2xl mx-auto text-gray-600">How will we know if students have achieved the desired results? This stage focuses on creating quality assessments *before* planning lessons, ensuring our teaching is targeted.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6">
@@ -72,10 +75,13 @@
                     <div>
                         <h3 class="text-2xl font-bold text-[#3E92CC]">Formative Assessments</h3>
                         <p class="mt-1 text-gray-700">These are ongoing checks for understanding that inform instruction. They range from formal quizzes to informal discussions, providing a complete picture of student progress.</p>
-                        <button id="suggestFormativeBtn" class="mt-3 bg-[#3E92CC] text-white text-xs px-3 py-1 rounded-md hover:bg-[#0A2463] transition-colors flex items-center">
-                            ✨ Suggest More Ideas
-                            <div id="formativeLoader" class="loader"></div>
-                        </button>
+                        <div class="flex items-center mt-3">
+                            <button id="suggestFormativeBtn" class="bg-[#3E92CC] text-white text-xs px-3 py-1 rounded-md hover:bg-[#0A2463] transition-colors flex items-center">
+                                ✨ Suggest More Ideas
+                                <div id="formativeLoader" class="loader"></div>
+                            </button>
+                            <button id="copyFormativeBtn" class="ml-2 bg-gray-300 text-gray-800 text-xs px-3 py-1 rounded-md hover:bg-gray-400 transition-colors hidden">Copy</button>
+                        </div>
                         <div id="formativeOutput" class="mt-2 text-sm text-gray-800 bg-blue-50 p-2 rounded hidden"></div>
                     </div>
                 </div>
@@ -129,20 +135,26 @@
                         <p class="text-5xl mb-2">🧗</p>
                         <h4 class="font-bold text-xl text-[#0A2463]">Scaffolding Support</h4>
                         <p class="text-sm mt-2 text-gray-600">Instruction is supported with tools like sentence starters, graphic organizers, and pre-taught vocabulary to ensure all students can access the material.</p>
-                        <button id="moreScaffoldingBtn" class="mt-3 bg-[#3E92CC] text-white text-xs px-3 py-1 rounded-md hover:bg-[#0A2463] transition-colors flex items-center mx-auto">
-                            ✨ More Examples
-                            <div id="scaffoldingLoader" class="loader"></div>
-                        </button>
+                        <div class="flex items-center mt-3 justify-center">
+                            <button id="moreScaffoldingBtn" class="bg-[#3E92CC] text-white text-xs px-3 py-1 rounded-md hover:bg-[#0A2463] transition-colors flex items-center">
+                                ✨ More Examples
+                                <div id="scaffoldingLoader" class="loader"></div>
+                            </button>
+                            <button id="copyScaffoldingBtn" class="ml-2 bg-gray-300 text-gray-800 text-xs px-3 py-1 rounded-md hover:bg-gray-400 transition-colors hidden">Copy</button>
+                        </div>
                         <div id="scaffoldingOutput" class="mt-2 text-sm text-gray-800 bg-blue-50 p-2 rounded hidden"></div>
                      </div>
                       <div class="bg-gray-100 p-6 rounded-lg shadow text-center">
                         <p class="text-5xl mb-2">🚀</p>
                         <h4 class="font-bold text-xl text-[#0A2463]">Enrichment Opportunities</h4>
                         <p class="text-sm mt-2 text-gray-600">Advanced learners are challenged to research critical theories, compare 'Antigone' to other texts, or write from a new perspective.</p>
-                        <button id="moreEnrichmentBtn" class="mt-3 bg-[#3E92CC] text-white text-xs px-3 py-1 rounded-md hover:bg-[#0A2463] transition-colors flex items-center mx-auto">
-                            ✨ More Examples
-                            <div id="enrichmentLoader" class="loader"></div>
-                        </button>
+                        <div class="flex items-center mt-3 justify-center">
+                            <button id="moreEnrichmentBtn" class="bg-[#3E92CC] text-white text-xs px-3 py-1 rounded-md hover:bg-[#0A2463] transition-colors flex items-center">
+                                ✨ More Examples
+                                <div id="enrichmentLoader" class="loader"></div>
+                            </button>
+                            <button id="copyEnrichmentBtn" class="ml-2 bg-gray-300 text-gray-800 text-xs px-3 py-1 rounded-md hover:bg-gray-400 transition-colors hidden">Copy</button>
+                        </div>
                         <div id="enrichmentOutput" class="mt-2 text-sm text-gray-800 bg-blue-50 p-2 rounded hidden"></div>
                      </div>
                 </div>
@@ -154,7 +166,7 @@
         <section id="further-exploration" class="mb-16">
             <div class="text-center mb-12">
                 <h2 class="text-4xl font-bold text-[#0A2463]">Further Exploration: Defiance in History</h2>
-                <p class="mt-2 max-w-2xl mx-auto text-gray-600">The themes of individual conscience versus state law in <em>Antigone</em> resonate throughout history. Explore these individuals who defied authority during the Civil Rights Movement, connecting their actions to the play's enduring questions.</p>
+                <p class="mt-2 max-w-2xl mx-auto text-gray-600">The themes of individual conscience versus state law in *Antigone* resonate throughout history. Explore these individuals who defied authority during the Civil Rights Movement, connecting their actions to the play's enduring questions.</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-gray-100 p-6 rounded-lg shadow">
